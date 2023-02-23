@@ -1,3 +1,9 @@
+Ce project est un projet réalisé en cours de Qualité en BUT informatique a l’IUT de Blagnac.
+
+Il s’agit d’un TP de découverte de Maven, nous avons donc découvert le fonctionnement de Maven et comment l’utiliser.
+
+La classe __JourSuivant.java__ est extraite d’un TP de développement du Semestre 1 pour avoir un exemple de code à tester.
+
 Compilation du projet :
 [source, bash]
 ----
