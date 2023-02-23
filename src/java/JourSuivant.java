@@ -64,9 +64,7 @@ public class JourSuivant {
     /**
      * Fait saisir une date à l'utilisateur
      *
-     * @param pfDate OUT : un tableau de trois cases représentant une
-     *               date. 1ere case : jour, 2nde case : mois, 3eme case : annee
-     *
+     * @param pfDate OUT : un tableau de trois cases représentant une date. 1ere case : jour, 2nde case : mois, 3eme case : annee
      */
     public static void saisieDate(int[] pfDate) {
         if (pfDate.length != 3) {
@@ -90,7 +88,6 @@ public class JourSuivant {
      *
      * @param pfDate IN : date initiale
      * @return true si et seulement si pfDate est valide
-     *
      */
     public static boolean dateValide(int[] pfDate) {
         if (pfDate.length != 3) {
@@ -106,11 +103,8 @@ public class JourSuivant {
      * Fonction aidant a saisir un entier.
      * A priori, pas besoin de la modifier
      * 
-     * @param message
-     *                message qui apparait avant que l’utilisateur saisise l’entier
-     * @param clavier
-     *                element scanner, passé en parametre pour ne pas devoir
-     *                l’ouvrir a chaque utilisation de la variable
+     * @param message message qui apparait avant que l’utilisateur saisise l’entier
+     * @param clavier element scanner, passé en parametre pour ne pas devoir l’ouvrir a chaque utilisation de la variable
      * @return entier saisi par l'utilisateur
      */
     public static int saisieEntier(Scanner clavier, String message) {
@@ -144,7 +138,7 @@ public class JourSuivant {
     /**
      * Détermine le nombre de jours dans un mois d'une année donnée
      * 
-     * @param mois  IN : mois
+     * @param mois IN : mois
      * @param annee IN : année
      * @return le nombre de jours dans le mois
      */
@@ -169,8 +163,8 @@ public class JourSuivant {
     /**
      * Détermine si une date est valide
      * 
-     * @param jour  IN : jour de la date
-     * @param mois  IN : mois de la date
+     * @param jour IN : jour de la date
+     * @param mois IN : mois de la date
      * @param annee IN :année de la date
      * @return vrai si la date est valide, faux sinon
      */
@@ -216,7 +210,6 @@ public class JourSuivant {
      *
      * @param pfDateJourCourant IN : date initiale
      * @param pfDateSurlendemain OUT : date du surlendemain
-     *
      */
     public static void surLendemain(int[] pfDateJourCourant, int[] pfDateSurlendemain) {
         jourSuivant(pfDateJourCourant, pfDateSurlendemain);
@@ -228,8 +221,7 @@ public class JourSuivant {
      *
      * @param pfDateJourCourant IN : date initiale
      * @param pfDateSurlendemain OUT : date du surlendemain
-     * @param n                 IN : nombre de jour apres la date donné
-     *
+     * @param n IN : nombre de jour apres la date donné
      */
     public static void nIemeJour(int[] pfDateJourCourant, int[] pfDateSurlendemain, int n) {
         if (n > 0) {
@@ -245,6 +237,7 @@ public class JourSuivant {
 
     /**
      * Calcule la date au centre des 2 dates fournies
+     *
      * @param pfdate1 IN : une date
      * @param pfdate2 IN : une autre date
      * @param pfdateout OUT : la date au centre
