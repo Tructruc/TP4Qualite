@@ -28,7 +28,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>HelloJava</mainClass>
+              <mainClass>JourSuivant</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -40,8 +40,14 @@
         <configuration> 
           <source>8</source> 
           <doclint>none</doclint>
+            <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
         </configuration>
       </plugin>
     </plugins>
+
+      <sourceDirectory>src/java</sourceDirectory>
+
   </build>
+
+
 </project>
