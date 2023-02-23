@@ -1,0 +1,137 @@
+= Compiler et construire ses applications avec maven
+Jean-Michel Bruel <jbruel@gmail.com>
+v1, 2022-02-20 : Initial draft
+:icons: font
+:diagrams: .
+:experimental:
+:classroom-link: https://classroom.github.com/a/gWXnQmIT
+:imagesdir: images
+
+// Useful definitions
+:eclipse: http://www.eclipse.org[Eclipse]
+:intellij: https://www.jetbrains.com/idea/[IntelliJ]
+:maven: http://maven.apache.org/[Maven]
+:vscode: https://code.visualstudio.com/[VS Code]
+
+// Specific to GitHub
+ifdef::env-github[]
+:toc:
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:icongit: Git
+endif::[]
+
+// Tags
+image:https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg["Open in Visual Studio Code",link="https://classroom.github.com/online_ide?assignment_repo_id=7083920&assignment_repo_type=AssignmentRepo"]
+
+//---------------------------------------------------------------
+
+Ce TP vise à être capable de compiler un fichier Java sans être dépendant de son IDE favori.
+Cela permet :
+
+- d'être indépendant de tout IDE
+- de faire construire l'application de manière automatique (c'est pour plus tard, mais c'est ce qu'on appelle l'intégration continue)
+
+== Mise en place
+
+WARNING: Les illustrations utilisent {vscode}, mais peu importe que vous utilisiez un autre IDE comme {eclipse} ou {intellij}, il vous suffit d'adapter à votre IDE (qu'il vous faut apprendre à connaître).
+
+Le plus simple pour réaliser ce TP est d'utiliser gitpod : rajoutez `gitpod.io/#` devant l'URL de votre dépôt ou cliquez sur le bouton Gitpod si vous en avez un qui s'affiche.
+
+.Pour les utilisateurs des machines IUT (merci à Rémy Guibert)
+[WARNING]
+====
+Pour ceux qui veulent lancer les commandes {maven} sur leur machine :
+
+. Placez vous dans le répertoire cloné (par exemple `r2-03-td4-maven-Falettiattendre`)
+. Ouvrez une invite de commande Windows (CMD) dans ce répertoire
+. Tapez la commande :
++
+....
+set JAVA_HOME=C:\Program Files\Java\jdk-17.0.1
+....
++
+. Vous pouvez maintenant taper les commandes {maven}
+
+Vous pouvez aussi importer dans eclipse votre projet maven puis faire exécuter à eclipse votre `pom.xml` (menu:Run as...[Maven]).
+====
+
+== C'est parti
+
+=== 1ère compilation : erreur de comilation
+
+WARNING: Les étapes suivantes utilisent les commandes {maven} en ligne de commande, c'est à dire à taper dans un terminal linux, mais vous pouvez utiliser l'équivalent en "click de souris" de votre IDE favori.
+
+. Lancer `mvn clean`
++
+C'est une bonne habitude à prendre (de nettoyer tout ce qui a pu se passer avant).
++
+. Lancer `mvn compile`
++
+Observez l'erreur de compilation qui en résulte.
+Par exemple :
++
+.Erreur de compilation
+image::error1.png["Erreur de compilation", width=80%]
++
+. Corrigez le code en conséquence.
++
+.Erreur corrigée
+image::success1.png["Erreur éliminée", width=80%]
++
+. Observez la création du répertoire `target` qui contient entre autre la version compilée `HelloJava.class` dans le répertoire `target/classes`.
+
+=== 2ème compilation : construire une application
+
+On ne peut malheureusement pas exécuter d'application puisqu'on n'a pas de main.
+
+. Ajoutez un `main` dans la classe.
++
+[%collapsible]
+====
+[source,java]
+----
+class HelloJava {	
+        public static void main(String[] args) {
+		System.out.println("Hello Blagnac");
+	}
+
+	public void afficherCancan(){
+	}
+}
+----
+====
++
+. Une fois que vous avez réussi à compiler (`mvn compile`), lancez la fabrication d'une version exécutable :
++
+....
+mvn package
+....
++
+. Observez la création du fichier JAR et testez-le :
+....
+java -jar target/tp_qualite-1.0.jar
+....
+
+.Et voilà!
+image::success2.png["Ca run!", width=80%]
+
+== Améliorations
+
+. Reprenez un de vos exercices précédents et mettez les sources dans `src/java`.
+. Ajustez éventuellement le `pom.xml` pour que les étapes précédentes produisent les résultats escomptés. Pensez à vérifier que votre fichier .jar est exécutable. Que devez-vous corriger dans votre pom.xml ? Quelle est la commande pour le lancer ?
+. Ajoutez les commentaires vus en dev.
+. Cherchez dans la documentation {maven} les commandes permettant de générer une documentation javadoc, et les adaptions à faire sur votre projet (et éventuellement `pom.xml`) afin que {maven} génère la documentation automatiquement pour vous.
+. Documentez votre projet: remplacez le contenu de ce fichier README.doc par les instructions de compilation, de documentation et de lancement de votre projet. 
+
+== Consignes et rendus
+
+Pour ce TP, il vous faudra simplement rendre le projet complet (`src`) ainsi que la dernière version du fichier `pom.xml` sur votre dépôt et la javadoc de votre code.
+
+[appendix]
+== Import dans Eclipse
+
+TO BE DONE...
